@@ -1,0 +1,46 @@
+:root
+  --page-background-color: #ECEDFF
+  --primary-text-color: #222531
+  --light-gray: #616E85
+  --primary-color: #4C57FB
+  
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+html
+  scrollbar-width: thin
+  scrollbar-color: #D0D6E4 transparent
+
+::-webkit-scrollbar-thumb
+  background: #D0D6E4
+
+body
+  font-family: "Inter", serif
+  font-optical-sizing: auto
+  font-weight: 400
+  font-style: normal
+  color: var(--primary-text-color)
+  background-color: var(--page-background-color)
+  font-size: 14px
+  line-height: 1.2
+
+h1
+  margin: 0
+  font-size: 32px
+  letter-spacing: 1px
+
+button
+  all: unset
+  display: inline-block
+  cursor: pointer
+  text-align: center
+  font-family: inherit
+  font-size: inherit
+  line-height: inherit
+
+button:focus-visible
+  outline: 1px solid var(--primary-color)
+  outline-offset: 1px
+  border-radius: 40px

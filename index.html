@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yelk — Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body class="no-scroll">
+    <div class="loader" id="loader">Loading...</div>
+    <main class="page hidden" id="page">
+      <div class="page__header">
+        <div>
+          <h1>Dashboard intro title</h1>
+          <p class="page__description">
+            Ac vulputate purus semper fusce at. Non dolor in cras.
+          </p>
+        </div>
+        <nav>
+          <ul class="tab-list" role="tablist">
+            <li>
+              <button role="tab" class="tab-list__item">
+                <span class="tab-list__icon">
+                  <img src="icons/compare.svg" alt="Compare icon" />
+                </span>
+                Compare
+              </button>
+            </li>
+            <li>
+              <button
+                role="tab"
+                class="tab-list__item tab-list__item--active"
+                aria-selected="true"
+              >
+                <span class="tab-list__icon">
+                  <img src="icons/managers.svg" alt="Managers icon" />
+                </span>
+                Managers
+              </button>
+            </li>
+            <li>
+              <button role="tab" class="tab-list__item">
+                <span class="tab-list__icon">
+                  <img src="icons/employees.svg" alt="Employees icon" />
+                </span>
+                Employees
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <section class="charts">
+        <section class="charts__item" data-grid-area="RLQ">
+          <div class="charts__header">
+            <h2 class="charts__title">RLQ</h2>
+            <div class="tooltip">
+              <button class="tooltip__button" aria-label="More information">
+                <svg
+                  class="icon tooltip__icon"
+                  role="img"
+                  aria-label="Information about chart"
+                >
+                  <use href="icons/icons.svg#icon-info"></use>
+                </svg>
+              </button>
+              <div class="tooltip__text">Risk-likelihood impact assessment</div>
+            </div>
+          </div>
+          <div class="charts__body">
+            <div id="rlq-chart"></div>
+            <div class="charts__footer">
+              <div><span class="charts-grid__percentage">59,47</span>%</div>
+              <div class="flex-center">
+                <img src="icons/users.svg" alt="Users icon" />
+                <span class="charts__users">56 884</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="charts__item" data-grid-area="KI">
+          <div class="charts__header">
+            <h2 class="charts__title">KI</h2>
+            <div class="tooltip">
+              <button class="tooltip__button" aria-label="More information">
+                <svg
+                  class="icon tooltip__icon"
+                  role="img"
+                  aria-label="Information about chart"
+                >
+                  <use href="icons/icons.svg#icon-info"></use>
+                </svg>
+              </button>
+              <div class="tooltip__text">Key risk indicators</div>
+            </div>
+          </div>
+          <div id="ki-chart"></div>
+        </section>
+        <section class="charts__item" data-grid-area="MZI">
+          <div class="charts__header">
+            <h2 class="charts__title">MZI</h2>
+            <div class="tooltip">
+              <button class="tooltip__button" aria-label="More information">
+                <svg
+                  class="icon tooltip__icon"
+                  role="img"
+                  aria-label="Information about chart"
+                >
+                  <use href="icons/icons.svg#icon-info"></use>
+                </svg>
+              </button>
+              <div class="tooltip__text">Multi-zone impact</div>
+            </div>
+          </div>
+          <div id="mzi-chart"></div>
+        </section>
+        <section class="charts__item" data-grid-area="survey-topics">
+          <div class="charts__header">
+            <h2 class="charts__title">Survey Topics</h2>
+          </div>
+          <ol class="list">
+            <li class="list__item">
+              <span class="list__text"
+                >Pulvinar iaculis placerat vitae dui</span
+              >
+            </li>
+            <li class="list__item">
+              <span class="list__text">Massa morbi mattis lectus ornare</span>
+            </li>
+            <li class="list__item">
+              <span class="list__text">Diam sem vestibulum purus morbi</span>
+            </li>
+            <li class="list__item">
+              <span class="list__text"
+                >Pulvinar iaculis placerat vitae dui</span
+              >
+            </li>
+            <li class="list__item">
+              <span class="list__text">Massa morbi mattis lectus ornare</span>
+            </li>
+            <li class="list__item">
+              <span class="list__text">Diam sem vestibulum purus morbi</span>
+            </li>
+          </ol>
+        </section>
+        <section class="charts__item" data-grid-area="survey-topics-scores">
+          <div class="charts__header">
+            <h2 class="charts__title">Survey Topics Scores</h2>
+            <div class="tooltip">
+              <button class="tooltip__button" aria-label="More information">
+                <svg
+                  class="icon tooltip__icon"
+                  role="img"
+                  aria-label="Information about chart"
+                >
+                  <use href="icons/icons.svg#icon-info"></use>
+                </svg>
+              </button>
+              <div class="tooltip__text">Survey performance evaluation</div>
+            </div>
+          </div>
+          <div id="survey-topic-chart"></div>
+        </section>
+        <section class="charts__item" data-grid-area="KPs">
+          <div class="charts__header">
+            <h2 class="charts__title">KPs</h2>
+            <div class="tooltip">
+              <button class="tooltip__button" aria-label="More information">
+                <svg
+                  class="icon tooltip__icon"
+                  role="img"
+                  aria-label="Information about chart"
+                >
+                  <use href="icons/icons.svg#icon-info"></use>
+                </svg>
+              </button>
+              <div class="tooltip__text">Key performance</div>
+            </div>
+          </div>
+          <div id="kps-chart"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/survey-topic-chart.js"></script>
+    <script src="js/kps-chart.js"></script>
+    <script src="js/rlq-chart.js"></script>
+    <script src="js/ki-chart.js"></script>
+    <script src="js/mzi-chart.js"></script>
+  </body>
+</html>

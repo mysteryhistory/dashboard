@@ -1,0 +1,98 @@
+.charts
+  margin-top: 32px
+  display: grid
+  gap: 32px
+  grid-template-columns: repeat(4, 1fr)
+
+  @media (max-width: 1376px)
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: auto
+
+  @media (max-width: 704px)
+    grid-template-columns: 1fr
+
+.charts__item
+  background-color: white
+  box-shadow: 0px 8px 24px 0px #5155C314
+  border-radius: 16px
+  position: relative
+
+.charts__header
+  padding: 24px
+  padding-bottom: 16px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 64px
+  min-height: 64px
+  flex-grow: 1
+
+.charts__body
+  overflow: hidden
+  border-radius: 0 0 16px 16px
+
+.charts__footer
+  background-color: #F18C5C
+  color: white
+  z-index: 10
+  position: absolute
+  bottom: 0
+  width: 100%
+  height: 52px
+  padding: 12px 24px
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  border-radius: 0 0 16px 16px
+
+.charts__users
+  margin-left: 4px
+
+.charts__percentage
+  font-weight: 700
+  font-size: 24px
+  line-height: 24px
+  letter-spacing: 1px
+
+.charts__title
+  line-height: 24px
+  font-size: 20px
+
+section[data-grid-area="survey-topics"]
+  display: flex
+  flex-direction: column
+
+section[data-grid-area="RLQ"],
+section[data-grid-area="KI"],
+section[data-grid-area="MZI"],
+section[data-grid-area="survey-topics"]
+  height: 208px
+
+section[data-grid-area="survey-topics-scores"],
+section[data-grid-area="KPs"]
+  height: 292px
+
+  @media (min-width: 704px)
+    grid-column: span 2
+
+#survey-topic-chart
+  height: 185px
+  width: 100%
+  padding: 0 24px 0 12px
+
+#kps-chart
+  height: 200px
+  width: 100%
+  padding: 0 24px 0 12px
+
+#rlq-chart
+  height: 144px
+  width: 100%
+
+#ki-chart
+  height: 144px
+  width: 100%
+
+#mzi-chart
+  height: 144px
+  width: 100%
