@@ -1,0 +1,45 @@
+@use '../variables' as vars
+
+.grid
+  margin-top: 32px
+  display: grid
+  gap: 32px
+  grid-template-columns: repeat(4, 1fr)
+
+  @media (max-width: vars.$lg)
+    grid-template-columns: repeat(2, 1fr)
+    grid-template-rows: auto
+
+  @media (max-width: vars.$sm)
+    grid-template-columns: 1fr
+
+.grid__item
+  background-color: white
+  box-shadow: 0px 8px 24px 0px #5155C314
+  border-radius: 16px
+  position: relative
+  height: 208px
+
+  &--list
+    display: flex
+    flex-direction: column
+
+  &--lg
+    height: 292px
+
+    @media (min-width: 696px)
+      grid-column: span 2
+
+.grid__item-header
+  padding: 24px
+  padding-bottom: 16px
+  display: flex
+  justify-content: space-between
+  align-items: center
+  height: 64px
+  min-height: 64px
+  flex-grow: 1
+
+.grid__item-title
+  line-height: 24px
+  font-size: 20px

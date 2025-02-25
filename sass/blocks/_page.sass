@@ -2,22 +2,22 @@
 
 .page
   max-width: vars.$page-max-width
-  width: 100%
+  width: calc(100% - (vars.$page-side-padding * 2))
   margin: 0 auto
-  padding: 62px 0
+  padding: 64px 0
 
-  @media (max-width: 1376px)
-    margin: 0
-    padding: 32px
+  @media (max-width: vars.$md)
+    padding: 32px 0
 
 .page__header
   display: flex
   justify-content: space-between
   align-items: flex-end
 
-  @media (max-width: 960px)
+  @media (max-width: vars.$sm)
     text-align: center
     flex-direction: column
+    align-items: center
 
 .page__description
   color: var(--light-gray)
