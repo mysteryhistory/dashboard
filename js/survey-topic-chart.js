@@ -71,13 +71,17 @@ createSurveyChart();
 
 let surveyResizeTimeout;
 window.addEventListener("resize", () => {
+  let chartContainer = document.querySelector("#survey-topic-chart");
+  chartContainer.style.display = "none";
+
+  let spinner = document.querySelector("#survey-spinner");
+  spinner.style.display = "block";
+
   clearTimeout(surveyResizeTimeout);
   surveyResizeTimeout = setTimeout(() => {
-    let chartContainer = document.querySelector("#survey-topic-chart");
-    chartContainer.style.display = "none";
-    chartContainer.offsetHeight; // Forces reflow
+    chartContainer.offsetHeight;
     chartContainer.style.display = "block";
-
+    spinner.style.display = "none";
     createSurveyChart();
-  }, 100);
+  }, 300);
 });

@@ -63,12 +63,17 @@ createKpsChart();
 
 let kpsResizeTimeout;
 window.addEventListener("resize", () => {
+  let chartContainer = document.querySelector("#kps-chart");
+  chartContainer.style.display = "none";
+
+  let spinner = document.querySelector("#kps-spinner");
+  spinner.style.display = "block";
+
   clearTimeout(kpsResizeTimeout);
   kpsResizeTimeout = setTimeout(() => {
-    let chartContainer = document.querySelector("#kps-chart");
-    chartContainer.style.display = "none";
-    chartContainer.offsetHeight; // Forces reflow
+    chartContainer.offsetHeight;
     chartContainer.style.display = "block";
+    spinner.style.display = "none";
     createKpsChart();
-  }, 100);
+  }, 300);
 });

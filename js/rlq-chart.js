@@ -83,12 +83,17 @@ window.addEventListener("resize", () => {
 
 let rlqResizeTimeout;
 window.addEventListener("resize", () => {
+  let chartContainer = document.querySelector("#rlq-chart");
+  chartContainer.style.display = "none";
+
+  let spinner = document.querySelector("#rlq-spinner");
+  spinner.style.display = "block";
+
   clearTimeout(rlqResizeTimeout);
   rlqResizeTimeout = setTimeout(() => {
-    let chartContainer = document.querySelector("#rlq-chart");
-    chartContainer.style.display = "none";
-    chartContainer.offsetHeight; // Forces reflow
+    chartContainer.offsetHeight;
     chartContainer.style.display = "block";
+    spinner.style.display = "none";
     createRlqChart();
-  }, 100);
+  }, 300);
 });

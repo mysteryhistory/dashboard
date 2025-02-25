@@ -56,12 +56,17 @@ createKiChart();
 
 let kiResizeTimeout;
 window.addEventListener("resize", () => {
+  let chartContainer = document.querySelector("#ki-chart");
+  chartContainer.style.display = "none";
+
+  let spinner = document.querySelector("#ki-spinner");
+  spinner.style.display = "block";
+
   clearTimeout(kiResizeTimeout);
   kiResizeTimeout = setTimeout(() => {
-    let chartContainer = document.querySelector("#ki-chart");
-    chartContainer.style.display = "none";
-    chartContainer.offsetHeight; // Forces reflow
+    chartContainer.offsetHeight;
     chartContainer.style.display = "block";
+    spinner.style.display = "none";
     createKiChart();
-  }, 100);
+  }, 300);
 });

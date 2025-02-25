@@ -26,9 +26,16 @@
 
   &--lg
     height: 292px
+    grid-column: span 2
 
-    @media (min-width: 696px)
+    @media (max-width: vars.$lg)
+      grid-column: span 1
+
+    @media (max-width: vars.$md)
       grid-column: span 2
+
+    @media (max-width: vars.$sm)
+      grid-column: span 1
 
 .grid__item-header
   padding: 24px
