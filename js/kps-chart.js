@@ -61,19 +61,29 @@ function createKpsChart() {
 
 createKpsChart();
 
+let kpsLastWidth = window.innerWidth;
 let kpsResizeTimeout;
+
 window.addEventListener("resize", () => {
-  let chartContainer = document.querySelector("#kps-chart");
-  chartContainer.style.display = "none";
+  const newWidth = window.innerWidth;
 
-  let spinner = document.querySelector("#kps-spinner");
-  spinner.style.display = "block";
+  if (newWidth !== kpsLastWidth) {
+    kpsLastWidth = newWidth;
 
-  clearTimeout(kpsResizeTimeout);
-  kpsResizeTimeout = setTimeout(() => {
-    chartContainer.offsetHeight;
-    chartContainer.style.display = "block";
-    spinner.style.display = "none";
-    createKpsChart();
-  }, 300);
+    let chartContainer = document.querySelector("#kps-chart");
+    let spinner = document.querySelector("#kps-spinner");
+
+    if (!chartContainer || !spinner) return;
+
+    chartContainer.style.display = "none";
+    spinner.style.display = "block";
+
+    clearTimeout(kpsResizeTimeout);
+    kpsResizeTimeout = setTimeout(() => {
+      chartContainer.offsetHeight;
+      chartContainer.style.display = "block";
+      spinner.style.display = "none";
+      createKpsChart();
+    }, 300);
+  }
 });

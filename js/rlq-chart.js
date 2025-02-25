@@ -75,25 +75,29 @@ function createRlqChart() {
 
 createRlqChart();
 
-window.addEventListener("resize", () => {
-  if (rlqChart) {
-    rlqChart.resize();
-  }
-});
-
+let rlqLastWidth = window.innerWidth;
 let rlqResizeTimeout;
+
 window.addEventListener("resize", () => {
-  let chartContainer = document.querySelector("#rlq-chart");
-  chartContainer.style.display = "none";
+  const newWidth = window.innerWidth;
 
-  let spinner = document.querySelector("#rlq-spinner");
-  spinner.style.display = "block";
+  if (newWidth !== rlqLastWidth) {
+    rlqLastWidth = newWidth;
 
-  clearTimeout(rlqResizeTimeout);
-  rlqResizeTimeout = setTimeout(() => {
-    chartContainer.offsetHeight;
-    chartContainer.style.display = "block";
-    spinner.style.display = "none";
-    createRlqChart();
-  }, 300);
+    let chartContainer = document.querySelector("#rlq-chart");
+    let spinner = document.querySelector("#rlq-spinner");
+
+    if (!chartContainer || !spinner) return;
+
+    chartContainer.style.display = "none";
+    spinner.style.display = "block";
+
+    clearTimeout(rlqResizeTimeout);
+    rlqResizeTimeout = setTimeout(() => {
+      chartContainer.offsetHeight;
+      chartContainer.style.display = "block";
+      spinner.style.display = "none";
+      createRlqChart();
+    }, 300);
+  }
 });

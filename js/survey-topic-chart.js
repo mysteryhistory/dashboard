@@ -69,19 +69,29 @@ function createSurveyChart() {
 
 createSurveyChart();
 
+let surveyLastWidth = window.innerWidth;
 let surveyResizeTimeout;
+
 window.addEventListener("resize", () => {
-  let chartContainer = document.querySelector("#survey-topic-chart");
-  chartContainer.style.display = "none";
+  const newWidth = window.innerWidth;
 
-  let spinner = document.querySelector("#survey-spinner");
-  spinner.style.display = "block";
+  if (newWidth !== surveyLastWidth) {
+    surveyLastWidth = newWidth;
 
-  clearTimeout(surveyResizeTimeout);
-  surveyResizeTimeout = setTimeout(() => {
-    chartContainer.offsetHeight;
-    chartContainer.style.display = "block";
-    spinner.style.display = "none";
-    createSurveyChart();
-  }, 300);
+    let chartContainer = document.querySelector("#survey-topic-chart");
+    let spinner = document.querySelector("#survey-spinner");
+
+    if (!chartContainer || !spinner) return;
+
+    chartContainer.style.display = "none";
+    spinner.style.display = "block";
+
+    clearTimeout(surveyResizeTimeout);
+    surveyResizeTimeout = setTimeout(() => {
+      chartContainer.offsetHeight;
+      chartContainer.style.display = "block";
+      spinner.style.display = "none";
+      createSurveyChart();
+    }, 300);
+  }
 });
